@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="./css/bootstrap.min.css">
+        <script src="./js/bootstrap.min.js"></script>
+
+        <style>
+            body {
+                background: url('./image/backdround.jpg') no-repeat center center fixed;
+                background-size: 100% 100%;
+            }
+            
+            label {
+            display: table-cell;
+            width: 1px;
+            white-space: nowrap;
+            font-size: 28px;
+            }
+            
+            span {
+                display: table-cell;
+                padding: 0 4px 0 6px;
+                width: 100%;
+            }
+            
+            input {
+                width: 100%;
+                font-size: 28px;
+                border-top: none;
+                border-left: none;
+                border-right: none;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="containner" >
+            <div class="row" style="margin-top: 300px;">
+                <div class="col-12">
+                    <p class="text-center" style="color: white; font-size: 28px;">Vui lòng nhập thông tin của bạn tại đây</p>
+                </div>
+                <div style=" display: table;" class="col-12 d-flex justify-content-center">
+                    <div class="" style="background-color: white; width: 70%; height: 300px;border-radius: 20px; padding: 10px 50px;">
+                        <label for="test">Enroll with us:</label>
+                        <span >
+                            <input name="test" id="test" 
+                                type="text" 
+                                placeholder="Enter your input" 
+                            />
+                        </span>
+                        <div>
+                            <input type="checkbox" checked data-toggle="toggle" data-onstyle="outline-primary" data-offstyle="outline-secondary">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
