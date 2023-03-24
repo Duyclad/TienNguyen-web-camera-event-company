@@ -72,6 +72,7 @@
                 $("#XacNhanForm3").click(function(){
                     $("#form_3").hide(500);
                     $("#show_camera").show(500);
+                    Webcam.attach('#camera')
                     $('body').css("background","url('./image/background-body-snapshot.png') no-repeat center center fixed")
                 });
 
@@ -82,8 +83,7 @@
                     image_format: 'jpg',
                     jpg_quality:90
                 })
-
-                Webcam.attach('#camera')
+                
             });
 
             function take_snapshot(){
@@ -105,7 +105,7 @@
             }
         </script>
         <div class="row" style="height: 100%;;
-        /* align-content: center;*/"  >
+        align-content: center;"  >
         <!-- Màn hình 1 -->
             <div class="row" style=" width: 100%; " id="form_1" >
                 <div class="col" style="padding: 0;">
