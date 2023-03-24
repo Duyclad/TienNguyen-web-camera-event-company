@@ -270,16 +270,17 @@
             <!-- Màn hình Chụp ảnh -->
             <div id="show_camera" style="width: 100%; height: 100%; display: none;" >
  
-                    <div style=" margin: 50px 0; position: relative;width: 100%; height: 75%;" id="snapshot">
-                            <img src="./image/unnamed.png" alt="" style="width:95%; left: 0; right: 0; margin-left: auto; margin-right: auto;position: absolute;">
-                            <div id="camera" style=" left: 0; right: 0; margin-left: auto; margin-right: auto;position: absolute; top: 0;
+                    <div style=" margin: 50px 0; position: relative;width: 100%; height: 45%; transform: scale(0.95);" id="snapshot">
+                            <div id="camera" style=" left: 0; right: 0; position: absolute; top: 0;
                             bottom: 0;
                             margin-top: auto;
-                            margin-bottom: auto;"></div>
-                            <img src="./image/circle.png" alt="" style="width:95%; left: 0; right: 0; margin-left: auto; margin-right: auto;position: absolute;">
-                            <img src="./image/frame-anh-1.png" alt="" style="width:95%; left: 0; right: 0; margin-left: auto; margin-right: auto;position: absolute;">
-                            <img src="./image/male/1-2/1.png" alt="" style="width:50%; left: 0; right: 0; margin-left: auto; margin-right: auto;position: absolute; top: 30px">
-                            <img src="./image/male/1-2/2.png" alt="" style="width:40%; left: 0; right: 5px; margin-left: auto; margin-right: auto;position: absolute; top:  320px">
+                            margin-bottom: auto; z-index: 0;"></div>
+                            <img src="./image/unnamed.png" alt="" style="width:100%; left: 0; right: 0; position: absolute;z-index: 1;">
+                            
+                            <img src="./image/circle.png" alt="" style="width:100%; left: 0; right: 0; position: absolute;  z-index: 2;">
+                            <img src="./image/frame-anh-1.png" alt="" style="width:100%; left: 0; right: 0; position: absolute;  z-index: 2;">
+                            <img src="./image/male/1-2/1.png" alt="" style="width:50%; left: 0; right: 0; margin-left: auto; margin-right: auto; position: absolute; top: 30px;  z-index: 2;">
+                            <img src="./image/male/1-2/2.png" alt="" style="width:40%; left: 0; right: 5px; position: absolute; margin-left: auto; margin-right: auto; top:  320px;  z-index: 3;">
                     </div>
 
                 <div class="row" style="position: fixed; z-index: 2;">
