@@ -244,7 +244,10 @@
     <body>
         <script>
             $(document).ready(function(){
-                var answer2 = 2;
+                $('#Tick_2').hide();
+                $('#Tick_3').hide();
+                $('#Tick_4').hide();
+
                 $("#XacNhanForm1").click(function(){
                     $("#form_1").hide();
                     $("#form_2").show();
@@ -252,11 +255,15 @@
 
                 $("#XacNhanForm2").click(function(){
                     $("#form_2").hide();
-                    if(answer2 == 2){
+                    if(answer2 == '3-5'){
                         $("#form_3").show();
                     }
                     else{
                         $("#show_camera").show();
+                        Webcam.attach('#camera')
+                        $('body').css("background","url('./image/background-body-snapshot.png') no-repeat center center fixed")
+                        $('body').css("background-size","100% 100%")
+                        $('#snapshot').height(($('#background-snapshot').height()))
                     }
                 });
 
@@ -281,6 +288,9 @@
                 
             });
 
+            var answer1 = "male";
+            var answer2 = "1-3";
+
             function take_snapshot(){
                 Webcam.snap(function(data_uri){
                     // height = ($('#camera video').height() - 20);
@@ -300,6 +310,37 @@
                     //     var newData = imageData.replace(/^data:image\/jpg/,"data:application/octet-stream");
                         $("#download").attr("download","image.jpg").attr("href",imageData);
                 })
+            }
+
+            function getDataForm1(){
+                if($('#gioitinh').is(":checked")){
+                    //nam
+                    gioitinh = "male";
+                }
+                else{
+                    //nu
+                    gioitinh = "female";
+                }
+            }
+
+            function getDataForm2(check){
+                $('#Tick_1').hide();
+                $('#Tick_2').hide();
+                $('#Tick_3').hide();
+                $('#Tick_4').hide();
+                if(check == '1-2'){
+                    $('#Tick_1').show();
+                }
+                else if(check == '3-5'){
+                    $('#Tick_2').show();
+                }
+                else if(check == '6-9'){
+                    $('#Tick_3').show();
+                }
+                else if(check == '10-30'){
+                    $('#Tick_4').show();
+                }
+
             }
         </script>
         <div class="row" style="height: 100%; width: 100%; align-content: center; margin: 0;"  >
@@ -321,7 +362,7 @@
                         </div>
                         
                         <div style="margin-top: 20px; text-align: center;">
-                            <input type="checkbox" checked data-on="NAM" data-off="NỮ" data-toggle="toggle" data-width="100">
+                            <input type="checkbox" id="gioitinh" onchange="getDataForm1()" checked data-on="NAM" data-off="NỮ" data-toggle="toggle" data-width="100">
                         </div>
                     </div>
                 </div>
@@ -340,7 +381,7 @@
                         <div class="col-6" id="column-1">
                             <div class="row" style="justify-content: center; margin: 0;">
                                 <div class="col-lg-5 col-md-4 col-3" style="padding: 0;">
-                                    <span class="checkbox" style="background-color:cornflowerblue; 
+                                    <span onclick="getDataForm2('1-2')" class="checkbox" style="background-color:cornflowerblue; 
                                     background-image: linear-gradient(to right, rgb(76, 99, 248) , rgb(119, 185, 255));
                                     width: 50px; height: 50px; border-radius: 10px; padding: 10px 10px; float: right;
                                     "><svg id="Tick_1" data-name="Layer 3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 70.73 59.51"><defs><style>.cls-5{fill:none;stroke:#fff;stroke-linecap:round;stroke-linejoin:round;stroke-width:8.28px;}</style></defs><polyline class="cls-5" points="4.14 31.72 26.08 55.37 66.59 4.14"/></svg></span>
@@ -352,10 +393,10 @@
                             </div>
                             <div class="row" style="justify-content: center; margin-top: 50px;">
                                 <div class="col-lg-5 col-md-4 col-3"  style="padding: 0;">
-                                    <span  class="checkbox" style="background-color:cornflowerblue; 
+                                    <span onclick="getDataForm2('6-9')"  class="checkbox" style="background-color:cornflowerblue; 
                                     background-image: linear-gradient(to right, rgb(76, 99, 248) , rgb(119, 185, 255));
                                     width: 50px; height: 50px; border-radius: 10px; padding: 10px 10px; float: right;
-                                    "><svg id="Tick_1" data-name="Layer 3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 70.73 59.51"><defs><style>.cls-5{fill:none;stroke:#fff;stroke-linecap:round;stroke-linejoin:round;stroke-width:8.28px;}</style></defs><polyline class="cls-5" points="4.14 31.72 26.08 55.37 66.59 4.14"/></svg></span>
+                                    "><svg id="Tick_3" data-name="Layer 3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 70.73 59.51"><defs><style>.cls-5{fill:none;stroke:#fff;stroke-linecap:round;stroke-linejoin:round;stroke-width:8.28px;}</style></defs><polyline class="cls-5" points="4.14 31.72 26.08 55.37 66.59 4.14"/></svg></span>
                                 </div>
                                 <div class="col-lg-7 col-md-8 col-9" style="text-align: left;" id="choose">
                                     <p style="font-size: 24px; margin-left: 10px;color: darkgray;margin-top: 5px;">6 - 9 năm</p>
@@ -365,10 +406,10 @@
                         <div class="col-6" style="" id="column-2">
                             <div class="row" style="justify-content: center;">
                                 <div class="col-lg-5 col-md-4 col-3"  style="padding: 0;">
-                                    <span  class="checkbox" style="background-color:cornflowerblue; 
+                                    <span onclick="getDataForm2('3-5')" class="checkbox" style="background-color:cornflowerblue; 
                                     background-image: linear-gradient(to right, rgb(76, 99, 248) , rgb(119, 185, 255));
                                     width: 50px; height: 50px; border-radius: 10px; padding: 10px 10px; float: right;
-                                    "><svg id="Tick_1" data-name="Layer 3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 70.73 59.51"><defs><style>.cls-5{fill:none;stroke:#fff;stroke-linecap:round;stroke-linejoin:round;stroke-width:8.28px;}</style></defs><polyline class="cls-5" points="4.14 31.72 26.08 55.37 66.59 4.14"/></svg></span>
+                                    "><svg id="Tick_2" data-name="Layer 3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 70.73 59.51"><defs><style>.cls-5{fill:none;stroke:#fff;stroke-linecap:round;stroke-linejoin:round;stroke-width:8.28px;}</style></defs><polyline class="cls-5" points="4.14 31.72 26.08 55.37 66.59 4.14"/></svg></span>
                                 </div>
                                 <div class="col-lg-7 col-md-8 col-9" style="text-align: left;" id="choose">
                                     <p style="font-size: 24px; margin-left: 10px;color: darkgray;margin-top: 5px;">3 - 5 năm</p>
@@ -376,10 +417,10 @@
                             </div>
                             <div class="row" style="justify-content: center;margin-top: 50px;">
                                 <div class="col-lg-5 col-md-4 col-3"  style="padding: 0;">
-                                    <span  class="checkbox" style="background-color:cornflowerblue; 
+                                    <span onclick="getDataForm2('10-30')" class="checkbox" style="background-color:cornflowerblue; 
                                     background-image: linear-gradient(to right, rgb(76, 99, 248) , rgb(119, 185, 255));
                                     width: 50px; height: 50px; border-radius: 10px; padding: 10px 10px;float: right;
-                                    "><svg id="Tick_1" data-name="Layer 3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 70.73 59.51"><defs><style>.cls-5{fill:none;stroke:#fff;stroke-linecap:round;stroke-linejoin:round;stroke-width:8.28px;}</style></defs><polyline class="cls-5" points="4.14 31.72 26.08 55.37 66.59 4.14"/></svg></span>
+                                    "><svg id="Tick_4" data-name="Layer 3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 70.73 59.51"><defs><style>.cls-5{fill:none;stroke:#fff;stroke-linecap:round;stroke-linejoin:round;stroke-width:8.28px;}</style></defs><polyline class="cls-5" points="4.14 31.72 26.08 55.37 66.59 4.14"/></svg></span>
                                 </div>
                                 <div class="col-lg-7 col-md-8 col-9" style="text-align: left;" id="choose">
                                     <p style="font-size: 24px; margin-left: 10px;color: darkgray;margin-top: 5px;">10 - 30 năm</p>
