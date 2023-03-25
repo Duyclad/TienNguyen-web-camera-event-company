@@ -279,7 +279,7 @@
 
             @media screen and (max-width: 700px) {
                 p, span, label, input[type=text]{
-                    font-size: 24px !important;
+                    font-size: 18px !important;
                 }
 
                 span.checkbox {
@@ -293,11 +293,11 @@
                 }
 
                 #choose p{
-                    margin-top: 0px !important;
+                    margin-top: 5px !important;
                 }
 
                 #frame_tren{
-                    top: 60px;
+                    top: 50px;
                     width: 50%;
                 }
 
@@ -312,8 +312,8 @@
                 }
 
                 .logo_form{
-                    width: 65px;
-                    height: 65px;
+                    width: 60px;
+                    height: 60px;
                 }
 
                 #question_2{
@@ -321,8 +321,19 @@
                 }
 
                 .ans3 p{
-                    margin-top: 12px !important;
+                    margin-top: 7px !important;
+                    margin-bottom: 0 !important;
                 }
+
+                .box-bottom-ans{
+                    margin-top: 20px !important;
+                }
+
+                .question-3{
+                    margin-top: 20px !important;
+                    margin-bottom: 10px !important;
+                }
+
             }
 
             @media screen and (max-width: 500px) {
@@ -365,11 +376,79 @@
                 }
 
                 #question_2{
-                    margin: 40px 0 !important;
+                    margin: 20px 0 !important;
                 }
 
                 .ans3 p{
-                    margin-top: 12px !important;
+                    margin-top: 5px !important;
+                    margin-bottom: 0 !important;
+                }
+
+                .form-3 div p.question-3{
+                    margin: 15px 0 !important;
+                }
+
+                .box-bottom-ans{
+                    margin-top: 5px !important;
+                }
+            }
+
+            @media screen and (max-width: 450px) {
+                p, span, label, input[type=text]{
+                    font-size: 12px !important;
+                }
+
+                span.checkbox {
+                    width: 30px !important;
+                    height: 30px !important;
+                    padding: 5px 10px !important;
+                }
+
+                #choose{
+                    padding: 0 3px;
+                    /* margin-top: 5px !important; */
+                }
+
+                #choose p{
+                    margin-top: 5px !important;
+                }
+
+                #frame_tren{
+                    top: 30px;
+                    width: 50%;
+                }
+
+                #frame_duoi{
+                    bottom: 5px;
+                    width: 40%;
+                }
+
+                svg#XacNhanForm1, svg#XacNhanForm2, svg#XacNhanForm3, #take_snapshot, #download_btn {
+                    width: 100px !important;
+                    height: 100px;
+                }
+
+                .logo_form{
+                    width: 40px;
+                    height: 40px;
+                    margin-top: -30px !important;
+                }
+
+                #question_2{
+                    margin: 15px 0 !important;
+                }
+
+                .ans3 p{
+                    margin-top: 5px !important;
+                    margin-bottom: 0 !important;
+                }
+
+                .form-3 div p.question-3{
+                    margin: 20px 0 !important;
+                }
+
+                .box-bottom-ans{
+                    margin-top: 5px !important;
                 }
             }
         </style>
@@ -650,7 +729,7 @@
 <!-- Màn hình 2 -->
             <div class="row" style=" display: none;  width: 100%; margin: 0;" id="form_2" >
                 <div style=" display: table;margin-top: 20px; padding: 0;" class="col-12 d-flex justify-content-center">
-                    <div class="" style="background-color: white; width: 80%;border-radius: 20px; padding: 10px 20px;">
+                    <div class="form-2" style="background-color: white; width: 80%;border-radius: 20px; padding: 10px 20px;">
                         <img src="./image/logo_form.png" class="logo_form" alt="" style="position: fixed; margin-top: -40px;">
                         <div style="width: 100%; text-align: center;">
                             <p id="question_2" style="color: darkgrey; font-weight: 700; font-size: 22px;margin: 30px 0;">Bạn đã đồng hành cùng SERVIER - Daflon bao nhiêu năm ?</p>
@@ -670,7 +749,7 @@
                                 </div>
                                 
                             </div>
-                            <div class="row" style="justify-content: center; margin-top: 50px; margin-left: 0; margin-right: 0;">
+                            <div class="row box-bottom-ans" style="justify-content: center; margin-top: 50px; margin-left: 0; margin-right: 0;">
                                 <div class="col-lg-5 col-md-4 col-3"  style="padding: 0;">
                                     <span onclick="getDataForm2('6-9')"  class="checkbox" style="background-color:cornflowerblue; 
                                     background-image: linear-gradient(to right, rgb(76, 99, 248) , rgb(119, 185, 255));
@@ -694,7 +773,7 @@
                                     <p style="font-size: 24px; margin-left: 10px;color: darkgray;margin-top: 5px;">3 - 5 năm</p>
                                 </div>
                             </div>
-                            <div class="row" style="justify-content: center;margin-top: 50px;  margin-left: 0; margin-right: 0;">
+                            <div class="row box-bottom-ans" style="justify-content: center;margin-top: 50px;  margin-left: 0; margin-right: 0;">
                                 <div class="col-lg-5 col-md-4 col-3"  style="padding: 0;">
                                     <span onclick="getDataForm2('10-30')" class="checkbox" style="background-color:cornflowerblue; 
                                     background-image: linear-gradient(to right, rgb(76, 99, 248) , rgb(119, 185, 255));
@@ -714,10 +793,10 @@
 <!-- Màn hình 3 -->
             <div class="row" style=" display: none; width: 100%; margin: 0;" id="form_3">
                 <div style=" display: table;margin-top: 20px; padding: 0;" class="col-12 d-flex justify-content-center">
-                    <div class="" style="background-color: white; width: 80%; border-radius: 20px; padding: 10px 20px;">
-                        <img src="./image/logo_form.png" class="logo_form" alt="" style="position: fixed; margin-top: -40px; margin-left: 50px;">
+                    <div class="form-3" style="background-color: white; width: 80%; border-radius: 20px; padding: 10px 20px;">
+                        <img src="./image/logo_form.png" class="logo_form" alt="" style="position: fixed; margin-top: -40px;">
                         <div style="width: 100%; text-align: center;">
-                            <p style="color: darkgrey; font-weight: 700; font-size: 22px;margin: 30px 0;">Câu chúc Daflon gửi đến bạn ?</p>
+                            <p  class="question-3" style="color: darkgrey; font-weight: 700; font-size: 22px;margin: 30px 0;">Câu chúc Daflon gửi đến bạn ?</p>
                         </div>
                         
                         <div class="row">
