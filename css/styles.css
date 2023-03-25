@@ -1,6 +1,6 @@
 @media screen and (max-height: 900px) {
 
-    #snapshot{
+    /* #snapshot{
         max-width: 35%;
     }
 
@@ -16,7 +16,7 @@
 
     .box-ans-name{
         margin: 10% 0 !important;
-    }
+    } */
 }
 
 @media screen and (max-width: 1600px) {
