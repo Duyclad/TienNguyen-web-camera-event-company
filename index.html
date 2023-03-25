@@ -44,7 +44,7 @@
             }
 
             svg#XacNhanForm1, svg#XacNhanForm2, svg#XacNhanForm3, #take_snapshot, #download_btn {
-                width: 200px;
+                width: 150px;
                 height: 100px;
             }
 
@@ -257,6 +257,9 @@
                 $('#Tick_3').hide();
                 $('#Tick_4').hide();
 
+                $('#Tick_6').hide();
+                $('#Tick_7').hide();
+
                 $("#XacNhanForm1").click(function(){
                     $("#form_1").hide();
                     $("#form_2").show();
@@ -264,8 +267,10 @@
 
                 $("#XacNhanForm2").click(function(){
                     $("#form_2").hide();
+                    
                     if(answer2 == '3-5'){
                         $("#form_3").show();
+                        answer3 = '3';
                     }
                     else{
                         $("#show_camera").show();
@@ -274,6 +279,8 @@
                         $('body').css("background","url('./image/background-body-snapshot.png') no-repeat center center fixed")
                         $('body').css("background-size","100% 100%")
                         $('#snapshot').height(($('#background-snapshot').height()))
+                        $('#frame_tren').attr("src", "./image/" + answer1 + "/" + answer2 + "/" + (answer3 != null ? (answer3 + "/") : '') + "1.png")
+                        $('#frame_duoi').attr("src", "./image/" + answer1 + "/" + answer2 + "/" + (answer3 != null ? (answer3 + "/") : '') + "2.png")
                     }
                 });
 
@@ -285,6 +292,8 @@
                     $('body').css("background","url('./image/background-body-snapshot.png') no-repeat center center fixed")
                     $('body').css("background-size","100% 100%")
                     $('#snapshot').height(($('#background-snapshot').height()))
+                    $('#frame_tren').attr("src", "./image/" + answer1 + "/" + answer2 + "/" + (answer3 != null ? (answer3 + "/") : '') + "1.png")
+                    $('#frame_duoi').attr("src", "./image/" + answer1 + "/" + answer2 + "/" + (answer3 != null ? (answer3 + "/") : '') + "2.png")
                 });
 
                 //load all webcam
@@ -300,7 +309,8 @@
             });
 
             var answer1 = "male";
-            var answer2 = "1-3";
+            var answer2 = "1-2";
+            var answer3 = null;
 
             var width = 0; // We will scale the photo width to this
             let height = 0; // This will be computed based on the input stream
@@ -393,16 +403,16 @@
                 }
             }
 
-            function take_snapshot(){
-                Webcam.snap(function(data_uri){
-                    // height = ($('#camera video').height() - 20);
-                    // width = ($('#camera video').width() - 20) ;
-                    $('#camera').html('<img src="' + data_uri + '"  />');
-                    $('#take_snapshot').hide();
-                    $('#download').show();
-                    download_image();
-                })
-            }
+            // function take_snapshot(){
+            //     Webcam.snap(function(data_uri){
+            //         // height = ($('#camera video').height() - 20);
+            //         // width = ($('#camera video').width() - 20) ;
+            //         $('#camera').html('<img src="' + data_uri + '"  />');
+            //         $('#take_snapshot').hide();
+            //         $('#download').show();
+            //         download_image();
+            //     })
+            // }
 
             function download_image(){
                 var element_snapshot = $('#snapshot');
@@ -417,11 +427,11 @@
             function getDataForm1(){
                 if($('#gioitinh').is(":checked")){
                     //nam
-                    gioitinh = "male";
+                    answer1 = "male";
                 }
                 else{
                     //nu
-                    gioitinh = "female";
+                    answer1 = "female";
                 }
             }
 
@@ -432,29 +442,51 @@
                 $('#Tick_4').hide();
                 if(check == '1-2'){
                     $('#Tick_1').show();
+                    answer2 = '1-2';
                 }
                 else if(check == '3-5'){
                     $('#Tick_2').show();
+                    answer2 = '3-5';
                 }
                 else if(check == '6-9'){
                     $('#Tick_3').show();
+                    answer2 = '6-9';
                 }
                 else if(check == '10-30'){
                     $('#Tick_4').show();
+                    answer2 = '10-30';
                 }
+                
+            }
 
+            function getDataForm3(check){
+                $('#Tick_5').hide();
+                $('#Tick_6').hide();
+                $('#Tick_7').hide();
+                if(check == '3'){
+                    $('#Tick_5').show();
+                    answer3 = '3';
+                }
+                else if(check == '4'){
+                    $('#Tick_6').show();
+                    answer3 = '4';
+                }
+                else if(check == '5'){
+                    $('#Tick_7').show();
+                    answer3 = '5';
+                }  
             }
         </script>
         <div class="row" style="height: 100%; width: 100%; align-content: center; margin: 0;"  >
         <!-- Màn hình 1 -->
             <div class="" style=" width: 100%; " id="form_1" >
-                <div class="col" style="padding: 0;">
+                <div class="col" style="padding: 3%;">
                     <p class="text-center" style="color: white; font-size: 28px;">Vui lòng nhập thông tin của bạn tại đây</p>
                 </div>
                 <div style=" display: table;margin-top: 20px;padding: 0;" class="col-12 d-flex justify-content-center">
-                    <div class="" style="background-color: white; width: 80%; height: 300px;border-radius: 20px; padding: 10px 20px; ">
+                    <div class="" style="background-color: white; width: 80%; border-radius: 20px; padding: 10px 20px; ">
                         <img src="./image/logo_form.png" width="60px" height="60px" alt="" style="position: fixed; margin-top: -40px;">
-                        <div style="margin-top: 110px; padding: 0 0px;">
+                        <div style="margin: 15% 0; padding: 0 0px;">
                             <label for="name" style="color: darkgray;">Tên:</label>
                             <span >
                                 <input name="name" id="name" 
@@ -463,18 +495,18 @@
                             </span>
                         </div>
                         
-                        <div style="margin-top: 20px; text-align: center;">
+                        <div style="text-align: center;  ">
                             <input type="checkbox" id="gioitinh" onchange="getDataForm1()" checked data-on="NAM" data-off="NỮ" data-toggle="toggle" data-width="100">
                         </div>
                     </div>
                 </div>
-                <div style="width: 100%;text-align: center;"><svg id="XacNhanForm1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 112.32 44.64"><defs><style>.cls-1{fill:url(#linear-gradient);filter:url(#filter);}.cls-2{font-size:12.18px;fill:#fff;font-family:Montserrat-Medium, Montserrat Medium;font-weight:500;}.cls-3{letter-spacing:-0.01em;}.cls-4{letter-spacing:-0.01em;}</style><linearGradient id="linear-gradient" x1="84.18" y1="50.48" x2="17.33" y2="-16.37" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#448ac9"/><stop offset="1" stop-color="#54c1ef"/></linearGradient><filter id="filter" x="0" y="0" width="112.32" height="44.64" filterUnits="userSpaceOnUse"><feOffset dx="3" dy="3" input="SourceAlpha"/><feGaussianBlur stdDeviation="3" result="blur"/><feFlood flood-color="#3c3c3c"/><feComposite operator="in" in2="blur"/><feComposite in="SourceGraphic"/></filter></defs><rect class="cls-1" x="6.03" y="6.19" width="94.05" height="26.34" rx="3.01"/><text class="cls-2" transform="translate(22.89 24.14)"><tspan class="cls-3">X</tspan><tspan class="cls-4" x="6.85" y="0">Á</tspan><tspan x="14.12" y="0">C NHẬN</tspan></text></svg></div>
+                <div style="width: 100%;text-align: center; margin-top: 5%;"><svg id="XacNhanForm1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 112.32 44.64"><defs><style>.cls-1{fill:url(#linear-gradient);filter:url(#filter);}.cls-2{font-size:12.18px;fill:#fff;font-family:Montserrat-Medium, Montserrat Medium;font-weight:500;}.cls-3{letter-spacing:-0.01em;}.cls-4{letter-spacing:-0.01em;}</style><linearGradient id="linear-gradient" x1="84.18" y1="50.48" x2="17.33" y2="-16.37" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#448ac9"/><stop offset="1" stop-color="#54c1ef"/></linearGradient><filter id="filter" x="0" y="0" width="112.32" height="44.64" filterUnits="userSpaceOnUse"><feOffset dx="3" dy="3" input="SourceAlpha"/><feGaussianBlur stdDeviation="3" result="blur"/><feFlood flood-color="#3c3c3c"/><feComposite operator="in" in2="blur"/><feComposite in="SourceGraphic"/></filter></defs><rect class="cls-1" x="6.03" y="6.19" width="94.05" height="26.34" rx="3.01"/><text class="cls-2" transform="translate(22.89 24.14)"><tspan class="cls-3">X</tspan><tspan class="cls-4" x="6.85" y="0">Á</tspan><tspan x="14.12" y="0">C NHẬN</tspan></text></svg></div>
             </div>
 <!-- Màn hình 2 -->
             <div class="row" style=" display: none;  width: 100%; margin: 0;" id="form_2" >
                 <div style=" display: table;margin-top: 20px; padding: 0;" class="col-12 d-flex justify-content-center">
                     <div class="" style="background-color: white; width: 80%; height: 300px;border-radius: 20px; padding: 10px 20px;">
-                        <img src="./image/logo_form.png" width="60px" height="60px" alt="" style="position: fixed; margin-top: -40px; margin-left: 50px;">
+                        <img src="./image/logo_form.png" width="60px" height="60px" alt="" style="position: fixed; margin-top: -40px;">
                         <div style="width: 100%; text-align: center;">
                             <p style="color: darkgrey; font-weight: 700; font-size: 22px;margin: 30px 0;">Bạn đã đồng hành cùng SERVIER - Daflon bao nhiêu năm ?</p>
                         </div>
@@ -493,7 +525,7 @@
                                 </div>
                                 
                             </div>
-                            <div class="row" style="justify-content: center; margin-top: 50px;">
+                            <div class="row" style="justify-content: center; margin-top: 50px; margin-left: 0; margin-right: 0;">
                                 <div class="col-lg-5 col-md-4 col-3"  style="padding: 0;">
                                     <span onclick="getDataForm2('6-9')"  class="checkbox" style="background-color:cornflowerblue; 
                                     background-image: linear-gradient(to right, rgb(76, 99, 248) , rgb(119, 185, 255));
@@ -506,7 +538,7 @@
                             </div>
                         </div>
                         <div class="col-6" style="" id="column-2">
-                            <div class="row" style="justify-content: center;">
+                            <div class="row" style="justify-content: center; margin: 0;">
                                 <div class="col-lg-5 col-md-4 col-3"  style="padding: 0;">
                                     <span onclick="getDataForm2('3-5')" class="checkbox" style="background-color:cornflowerblue; 
                                     background-image: linear-gradient(to right, rgb(76, 99, 248) , rgb(119, 185, 255));
@@ -517,7 +549,7 @@
                                     <p style="font-size: 24px; margin-left: 10px;color: darkgray;margin-top: 5px;">3 - 5 năm</p>
                                 </div>
                             </div>
-                            <div class="row" style="justify-content: center;margin-top: 50px;">
+                            <div class="row" style="justify-content: center;margin-top: 50px;  margin-left: 0; margin-right: 0;">
                                 <div class="col-lg-5 col-md-4 col-3"  style="padding: 0;">
                                     <span onclick="getDataForm2('10-30')" class="checkbox" style="background-color:cornflowerblue; 
                                     background-image: linear-gradient(to right, rgb(76, 99, 248) , rgb(119, 185, 255));
@@ -550,7 +582,7 @@
                                     <span style="background-color:cornflowerblue; 
                                     background-image: linear-gradient(to right, rgb(76, 99, 248) , rgb(119, 185, 255));
                                     width: 50px; height: 50px; border-radius: 10px; padding: 10px 10px; float: right;margin-top: 20px;
-                                    "><svg id="Tick_1" data-name="Layer 3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 70.73 59.51"><defs><style>.cls-5{fill:none;stroke:#fff;stroke-linecap:round;stroke-linejoin:round;stroke-width:8.28px;}</style></defs><polyline class="cls-5" points="4.14 31.72 26.08 55.37 66.59 4.14"/></svg></span>
+                                    " onclick="getDataForm3('3')"><svg id="Tick_5" data-name="Layer 3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 70.73 59.51"><defs><style>.cls-5{fill:none;stroke:#fff;stroke-linecap:round;stroke-linejoin:round;stroke-width:8.28px;}</style></defs><polyline class="cls-5" points="4.14 31.72 26.08 55.37 66.59 4.14"/></svg></span>
                                 </div>
                                 <div class="col-9" style="text-align: left;">
                                     <p style="font-size: 24px; margin-left: 10px;color: darkgray;margin-top: 5px;">3 năm chưa phải là dài <br> Yêu thì dốc hết tình này...500 năm</p>
@@ -562,7 +594,7 @@
                                     <span style="background-color:cornflowerblue; 
                                     background-image: linear-gradient(to right, rgb(76, 99, 248) , rgb(119, 185, 255));
                                     width: 50px; height: 50px; border-radius: 10px; padding: 10px 10px; float: right;margin-top: 20px;
-                                    "><svg id="Tick_1" data-name="Layer 3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 70.73 59.51"><defs><style>.cls-5{fill:none;stroke:#fff;stroke-linecap:round;stroke-linejoin:round;stroke-width:8.28px;}</style></defs><polyline class="cls-5" points="4.14 31.72 26.08 55.37 66.59 4.14"/></svg></span>
+                                    " onclick="getDataForm3('4')"><svg id="Tick_6" data-name="Layer 3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 70.73 59.51"><defs><style>.cls-5{fill:none;stroke:#fff;stroke-linecap:round;stroke-linejoin:round;stroke-width:8.28px;}</style></defs><polyline class="cls-5" points="4.14 31.72 26.08 55.37 66.59 4.14"/></svg></span>
                                 </div>
                                 <div class="col-9" style="text-align: left;">
                                     <p style="font-size: 24px; margin-left: 10px;color: darkgray;margin-top: 5px;">4 năm chưa phải là dài <br> Yêu thì dốc hết tình này...500 năm</p>
@@ -574,7 +606,7 @@
                                     <span style="background-color:cornflowerblue; 
                                     background-image: linear-gradient(to right, rgb(76, 99, 248) , rgb(119, 185, 255));
                                     width: 50px; height: 50px; border-radius: 10px; padding: 10px 10px; float: right;margin-top: 20px;
-                                    "><svg id="Tick_1" data-name="Layer 3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 70.73 59.51"><defs><style>.cls-5{fill:none;stroke:#fff;stroke-linecap:round;stroke-linejoin:round;stroke-width:8.28px;}</style></defs><polyline class="cls-5" points="4.14 31.72 26.08 55.37 66.59 4.14"/></svg></span>
+                                    " onclick="getDataForm3('5')"><svg id="Tick_7" data-name="Layer 3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 70.73 59.51"><defs><style>.cls-5{fill:none;stroke:#fff;stroke-linecap:round;stroke-linejoin:round;stroke-width:8.28px;}</style></defs><polyline class="cls-5" points="4.14 31.72 26.08 55.37 66.59 4.14"/></svg></span>
                                 </div>
                                 <div class="col-9" style="text-align: left;">
                                     <p style="font-size: 24px; margin-left: 10px;color: darkgray;margin-top: 5px;">5 năm chưa phải là dài <br> Yêu thì dốc hết tình này...500 năm</p>
@@ -607,8 +639,8 @@
                             
                             <img src="./image/circle.png" alt="" style="width:100%; left: 0; right: 0; position: absolute;  z-index: 2;">
                             <img src="./image/frame-anh-1.png" alt="" style="width:100%; left: 0; right: 0; position: absolute;  z-index: 2;">
-                            <img id="frame_tren" src="./image/male/1-2/1.png" alt="" style="left: 0; right: 0; margin-left: auto; margin-right: auto; position: absolute;  z-index: 2;">
-                            <img id="frame_duoi" src="./image/male/1-2/2.png" alt="" style="left: 0; right: 5px; position: absolute; margin-left: auto; margin-right: auto;  z-index: 3;">
+                            <img id="frame_tren" src="" alt="" style="left: 0; right: 0; margin-left: auto; margin-right: auto; position: absolute;  z-index: 2;">
+                            <img id="frame_duoi" src="" alt="" style="left: 0; right: 5px; position: absolute; margin-left: auto; margin-right: auto;  z-index: 3;">
                     </div>
 
                 <div class="" style="position: fixed;width: 100%; z-index: 2;text-align: center;">
