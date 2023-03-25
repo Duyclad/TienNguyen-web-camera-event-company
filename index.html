@@ -56,7 +56,9 @@
             video{
                 /* max-width: 550px;
                 max-height: 550px; */
-                margin-top: 10%;
+                /* margin-top: 10%; */
+                -webkit-transform: scaleX(-1);
+                transform: scaleX(-1);    
             }
 
             #camera{
@@ -587,6 +589,13 @@
 
                     if (isNaN(height)) {
                         height = width / (4 / 3);
+                    }
+
+                    if(width > height){
+                        $('video').css('margin-top','10%')
+                    }
+                    else{
+                        $('video').css('margin-top','-50px')
                     }
 
                     video.setAttribute("width", width);
