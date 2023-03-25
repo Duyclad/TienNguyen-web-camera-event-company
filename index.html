@@ -450,6 +450,10 @@
                 .box-bottom-ans{
                     margin-top: 5px !important;
                 }
+
+                .checkbox-form-3{
+                    margin-top: 5px !important;
+                }
             }
         </style>
     </head>
@@ -589,6 +593,9 @@
                     video.setAttribute("height", height);
                     canvas.setAttribute("width", width);
                     canvas.setAttribute("height", height);
+                    video.setAttribute('autoplay', '');
+                    video.setAttribute('muted', '');
+                    video.setAttribute('playsinline', '');
                     streaming = true;
                     }
                 },
@@ -806,7 +813,7 @@
                                     <span style="background-color:cornflowerblue; 
                                     background-image: linear-gradient(to right, rgb(76, 99, 248) , rgb(119, 185, 255));
                                     width: 50px; height: 50px; border-radius: 10px; padding: 10px 10px; float: right;margin-top: 20px;
-                                    " onclick="getDataForm3('3')" id="choose" class="checkbox"><svg id="Tick_5" data-name="Layer 3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 70.73 59.51"><defs><style>.cls-5{fill:none;stroke:#fff;stroke-linecap:round;stroke-linejoin:round;stroke-width:8.28px;}</style></defs><polyline class="cls-5" points="4.14 31.72 26.08 55.37 66.59 4.14"/></svg></span>
+                                    " onclick="getDataForm3('3')" id="choose" class="checkbox checkbox-form-3"><svg id="Tick_5" data-name="Layer 3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 70.73 59.51"><defs><style>.cls-5{fill:none;stroke:#fff;stroke-linecap:round;stroke-linejoin:round;stroke-width:8.28px;}</style></defs><polyline class="cls-5" points="4.14 31.72 26.08 55.37 66.59 4.14"/></svg></span>
                                 </div>
                                 <div class="col-9 ans3" style="text-align: left;">
                                     <p style="font-size: 24px; margin-left: 10px;color: darkgray;margin-top: 5px;">3 năm chưa phải là dài <br> Yêu thì dốc hết tình này...500 năm</p>
@@ -818,7 +825,7 @@
                                     <span style="background-color:cornflowerblue; 
                                     background-image: linear-gradient(to right, rgb(76, 99, 248) , rgb(119, 185, 255));
                                     width: 50px; height: 50px; border-radius: 10px; padding: 10px 10px; float: right;margin-top: 20px;
-                                    " onclick="getDataForm3('4')" id="choose" class="checkbox"><svg id="Tick_6" data-name="Layer 3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 70.73 59.51"><defs><style>.cls-5{fill:none;stroke:#fff;stroke-linecap:round;stroke-linejoin:round;stroke-width:8.28px;}</style></defs><polyline class="cls-5" points="4.14 31.72 26.08 55.37 66.59 4.14"/></svg></span>
+                                    " onclick="getDataForm3('4')" id="choose" class="checkbox checkbox-form-3"><svg id="Tick_6" data-name="Layer 3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 70.73 59.51"><defs><style>.cls-5{fill:none;stroke:#fff;stroke-linecap:round;stroke-linejoin:round;stroke-width:8.28px;}</style></defs><polyline class="cls-5" points="4.14 31.72 26.08 55.37 66.59 4.14"/></svg></span>
                                 </div>
                                 <div class="col-9 ans3" style="text-align: left;">
                                     <p style="font-size: 24px; margin-left: 10px;color: darkgray;margin-top: 5px;">4 năm chưa phải là dài <br> Yêu thì dốc hết tình này...500 năm</p>
@@ -830,7 +837,7 @@
                                     <span style="background-color:cornflowerblue; 
                                     background-image: linear-gradient(to right, rgb(76, 99, 248) , rgb(119, 185, 255));
                                     width: 50px; height: 50px; border-radius: 10px; padding: 10px 10px; float: right;margin-top: 20px;
-                                    " onclick="getDataForm3('5')" id="choose" class="checkbox"><svg id="Tick_7" data-name="Layer 3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 70.73 59.51"><defs><style>.cls-5{fill:none;stroke:#fff;stroke-linecap:round;stroke-linejoin:round;stroke-width:8.28px;}</style></defs><polyline class="cls-5" points="4.14 31.72 26.08 55.37 66.59 4.14"/></svg></span>
+                                    " onclick="getDataForm3('5')" id="choose" class="checkbox checkbox-form-3"><svg id="Tick_7" data-name="Layer 3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 70.73 59.51"><defs><style>.cls-5{fill:none;stroke:#fff;stroke-linecap:round;stroke-linejoin:round;stroke-width:8.28px;}</style></defs><polyline class="cls-5" points="4.14 31.72 26.08 55.37 66.59 4.14"/></svg></span>
                                 </div>
                                 <div class="col-9 ans3" style="text-align: left;">
                                     <p style="font-size: 24px; margin-left: 10px;color: darkgray;margin-top: 5px;">5 năm chưa phải là dài <br> Yêu thì dốc hết tình này...500 năm</p>
@@ -853,7 +860,7 @@
                             margin-top: auto;
                             margin-bottom: auto; z-index: 0;">
                             
-                            <video id="video" auto-play="true" plays-inline="true" muted="true">Video stream not available.</video>
+                            <video id="video">Video stream not available.</video>
                             <canvas id="canvas" style="display: none;"> </canvas>
                             <div class="output" style="">
                                 <img id="photo" style="display: none;" alt="The screen capture will appear in this box." />
