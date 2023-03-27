@@ -474,6 +474,15 @@
                 $('#Tick_6').hide();
                 $('#Tick_7').hide();
 
+                if(screen.width > screen.height){
+                        $('video').css('margin-top','10%');
+                        $('#photo').css('margin-top','10%');
+                    }
+                    else{
+                        $('video').css('margin-top','-50px')
+                        $('#photo').css('margin-top','-50px');
+                    }
+
                 $("#XacNhanForm1").click(function(){
                     $("#form_1").hide();
                     $("#form_2").show();
@@ -881,10 +890,10 @@
                             margin-top: auto;
                             margin-bottom: auto; z-index: 0;">
                             
-                            <video id="video" style="margin-top: -50px;" playsinline muted autoplay>Video stream not available.</video>
+                            <video id="video" playsinline muted autoplay>Video stream not available.</video>
                             <canvas id="canvas" style="display: none;"> </canvas>
                             <!-- <div class="output" style=""> -->
-                                <img id="photo" style="display: none; margin-top: -50px;" alt="The screen capture will appear in this box." />
+                                <img id="photo" style="display: none;" alt="The screen capture will appear in this box." />
                             <!-- </div> -->
                             </div>
                             <img id="background-snapshot" src="./image/unnamed.png" alt="" style="width:100%;  left: 0; right: 0; position: absolute;z-index: 1;">
