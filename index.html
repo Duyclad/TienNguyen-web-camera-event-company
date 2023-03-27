@@ -465,10 +465,12 @@
     <body>
         <script>
             $(document).ready(function(){
+                $('#Tick_1').hide();
                 $('#Tick_2').hide();
                 $('#Tick_3').hide();
                 $('#Tick_4').hide();
 
+                $('#Tick_5').hide();
                 $('#Tick_6').hide();
                 $('#Tick_7').hide();
 
@@ -478,11 +480,13 @@
                 });
 
                 $("#XacNhanForm2").click(function(){
+                    if(answer2 == "") return;
+
                     $("#form_2").hide();
                     
                     if(answer2 == '3-5'){
                         $("#form_3").show();
-                        answer3 = '3';
+                        answer3 = '';
                     }
                     else{
                         $("#show_camera").show();
@@ -509,6 +513,8 @@
                 });
 
                 $("#XacNhanForm3").click(function(){
+                    if(answer3 == "") return;
+
                     $("#form_3").hide();
                     $("#show_camera").show();
                     // Webcam.attach('#camera')
@@ -542,7 +548,7 @@
             });
 
             var answer1 = "male";
-            var answer2 = "1-2";
+            var answer2 = "";
             var answer3 = null;
 
             var width = 0; // We will scale the photo width to this
@@ -730,7 +736,7 @@
                 </div>
                 <div style=" display: table;margin-top: 20px;padding: 0;" class="col-12 d-flex justify-content-center form-1">
                     <div class="" style="background-color: white; width: 80%; border-radius: 20px; padding: 10px 20px; ">
-                        <img src="./image/logo_form.png"  class="logo_form" alt="" style="position: fixed; margin-top: -40px;">
+                        <img src="./image/logo_form.png"  class="logo_form" alt="" style="margin-top: -40px;">
                         <div style="margin: 15% 0; padding: 0 0px;" class="box-ans-name">
                             <label for="name" style="color: darkgray;">Tên:</label>
                             <span >
@@ -751,7 +757,7 @@
             <div class="row" style=" display: none;  width: 100%; margin: 0;" id="form_2" >
                 <div style=" display: table;margin-top: 20px; padding: 0;" class="col-12 d-flex justify-content-center">
                     <div class="form-2" style="background-color: white; width: 80%;border-radius: 20px; padding: 10px 20px;">
-                        <img src="./image/logo_form.png" class="logo_form" alt="" style="position: fixed; margin-top: -40px;">
+                        <img src="./image/logo_form.png" class="logo_form" alt="" style="margin-top: -40px;">
                         <div style="width: 100%; text-align: center;">
                             <p id="question_2" style="color: darkgrey; font-weight: 700; font-size: 22px;margin: 30px 0;">Bạn đã đồng hành cùng SERVIER - Daflon bao nhiêu năm ?</p>
                         </div>
@@ -815,7 +821,7 @@
             <div class="row" style=" display: none; width: 100%; margin: 0;" id="form_3">
                 <div style=" display: table;margin-top: 20px; padding: 0;" class="col-12 d-flex justify-content-center">
                     <div class="form-3" style="background-color: white; width: 80%; border-radius: 20px; padding: 10px 20px;">
-                        <img src="./image/logo_form.png" class="logo_form" alt="" style="position: fixed; margin-top: -40px;">
+                        <img src="./image/logo_form.png" class="logo_form" alt="" style="margin-top: -40px;">
                         <div style="width: 100%; text-align: center;">
                             <p  class="question-3" style="color: darkgrey; font-weight: 700; font-size: 22px;margin: 30px 0;">Câu chúc Daflon gửi đến bạn</p>
                         </div>
