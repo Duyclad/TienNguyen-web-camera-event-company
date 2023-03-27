@@ -669,9 +669,9 @@
                 var element_snapshot = $('#snapshot');
 
                 html2canvas($('#snapshot')[0]).then(canvas => {
-                    var imageData  = canvas.toDataURL("image/jpg");
-                        var newData = imageData.replace(/^data:image\/jpg/,"data:application/octet-stream");
-                        $("#download").attr("download","image.jpg").attr("href",imageData);
+                    var imageData  = canvas.toDataURL("image/jpeg");
+                        var newData = imageData.replace(/^data:image\/jpeg/,"data:application/octet-stream");
+                        $("#download").attr("download","image.jpg").attr("href",newData);
                 })
             }
 
