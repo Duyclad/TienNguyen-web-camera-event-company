@@ -641,7 +641,7 @@
                 canvas.height = height;
                 context.drawImage(video, 0, 0, width, height);
 
-                const data = canvas.toDataURL("image/png");
+                const data = canvas.toDataURL("image/jpg");
                 photo.setAttribute("src", data);
                 photo.setAttribute("width", width);
                 $('#photo').show()
