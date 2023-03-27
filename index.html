@@ -490,11 +490,11 @@
                     }
                     else{
                         $("#show_camera").show();
+                        $('#snapshot').height(($('#background-snapshot').height()))
                         // Webcam.attach('#camera')
                         startup()
                         $('body').css("background","url('./image/background-body-snapshot.png') no-repeat center center fixed")
                         $('body').css("background-size","100% 100%")
-                        $('#snapshot').height(($('#background-snapshot').height()))
                         var x = screen.width;
                         var srcImgTren = "./image/" + answer1 + "/" + answer2 + "/" + (answer3 != null ? (answer3 + "/") : '') + "1.png";
                         var srcImgDuoi = "./image/" + answer1 + "/" + answer2 + "/" + (answer3 != null ? (answer3 + "/") : '') + "2.png";
@@ -517,11 +517,12 @@
 
                     $("#form_3").hide();
                     $("#show_camera").show();
+                    $('#snapshot').height(($('#background-snapshot').height()))
                     // Webcam.attach('#camera')
                     startup()
                     $('body').css("background","url('./image/background-body-snapshot.png') no-repeat center center fixed")
                     $('body').css("background-size","100% 100%")
-                    $('#snapshot').height(($('#background-snapshot').height()))
+                    // $('#snapshot').height(($('#background-snapshot').height()))
                     var x = screen.width;
                     var srcImgTren = "./image/" + answer1 + "/" + answer2 + "/" + (answer3 != null ? (answer3 + "/") : '') + "1.png";
                     var srcImgDuoi = "./image/" + answer1 + "/" + answer2 + "/" + (answer3 != null ? (answer3 + "/") : '') + "2.png";
@@ -645,7 +646,7 @@
                 photo.setAttribute("src", data);
                 photo.setAttribute("width", width);
                 $('#photo').show()
-                $('#video').hide();
+                $('#video').remove();
                 $('#take_snapshot').hide();
                 $('#download').show();
                 download_image();
@@ -882,9 +883,9 @@
                             
                             <video id="video" playsinline muted autoplay>Video stream not available.</video>
                             <canvas id="canvas" style="display: none;"> </canvas>
-                            <div class="output" style="">
+                            <!-- <div class="output" style=""> -->
                                 <img id="photo" style="display: none;" alt="The screen capture will appear in this box." />
-                            </div>
+                            <!-- </div> -->
                             </div>
                             <img id="background-snapshot" src="./image/unnamed.png" alt="" style="width:100%;  left: 0; right: 0; position: absolute;z-index: 1;">
                             
