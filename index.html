@@ -8,8 +8,8 @@
         <script src="./js/webcam.min.js"></script>
         <script src="./js/html2canvas.min.js"></script>
 
-        <link href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/css/bootstrap4-toggle.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/js/bootstrap4-toggle.min.js"></script>
+        <!-- <link href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/css/bootstrap4-toggle.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/js/bootstrap4-toggle.min.js"></script> -->
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta charset="UTF-8">
 
@@ -685,14 +685,16 @@
                 })
             }
 
-            function getDataForm1(){
-                if($('#gioitinh').is(":checked")){
-                    //nam
-                    answer1 = "male";
+            function getDataForm1(check){
+                if(check == 'male'){
+                    answer1 = 'female';
+                    $('#btn-male').hide();
+                    $('#btn-female').show();
                 }
                 else{
-                    //nu
-                    answer1 = "female";
+                    answer1 = 'male';
+                    $('#btn-male').show();
+                    $('#btn-female').hide();
                 }
             }
 
@@ -757,7 +759,9 @@
                         </div>
                         
                         <div style="text-align: center;  ">
-                            <input type="checkbox" id="gioitinh" onchange="getDataForm1()" checked data-on="NAM" data-off="NỮ" data-toggle="toggle" data-width="100">
+                            <!-- <input type="checkbox" id="gioitinh" onchange="getDataForm1()" checked data-on="NAM" data-off="NỮ" data-toggle="toggle" data-width="100"> -->
+                            <img id="btn-male" src="./image/btn-male.png" style="width: 30%;" alt="" onclick="getDataForm1('male')">
+                            <img id="btn-female" src="./image/btn-female.png" style="width: 30%; display: none;" alt="" onclick="getDataForm1('female')">
                         </div>
                     </div>
                 </div>
