@@ -474,14 +474,14 @@
                 $('#Tick_6').hide();
                 $('#Tick_7').hide();
 
-                if(screen.width > screen.height){
-                        $('video').css('margin-top','10%');
-                        $('#photo').css('margin-top','10%');
-                    }
-                    else{
-                        $('video').css('margin-top','-50px')
-                        $('#photo').css('margin-top','-50px');
-                    }
+                // if(screen.width > screen.height){
+                //         $('video').css('margin-top','10%');
+                //         $('#photo').css('margin-top','10%');
+                //     }
+                //     else{
+                //         $('video').css('margin-top','-50px')
+                //         $('#photo').css('margin-top','-50px');
+                //     }
 
                 $("#XacNhanForm1").click(function(){
                     $("#form_1").hide();
@@ -610,14 +610,14 @@
                         height = width / (4 / 3);
                     }
 
-                    // if(width > height){
-                    //     $('video').css('margin-top','10%');
-                    //     $('#photo').css('margin-top','10%');
-                    // }
-                    // else{
-                    //     $('video').css('margin-top','-50px')
-                    //     $('#photo').css('margin-top','-50px');
-                    // }
+                    if(width > height){
+                        $('video').css('margin-top','10%');
+                        $('#photo').css('margin-top','10%');
+                    }
+                    else{
+                        $('video').css('margin-top','-50px')
+                        $('#photo').css('margin-top','-50px');
+                    }
 
                     video.setAttribute("width", width);
                     video.setAttribute("height", height);
